@@ -2,9 +2,311 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Restaurants</title>
 </head>
+<style>
+    .text {
+    font-size: 15px;
+    padding-left: 20px;
+    }
+    .card-img-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .card:hover .card-img-overlay {
+            background-color: rgba(0, 0, 0, 0.7); /* Darker overlay on hover */
+        }
+        .card {
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+    .star-rating i {
+    color: #f8c30e; /* Star color */
+    }
+    .star-rating .fa-star-half-alt {
+    color: #f8c30e;
+    }
+    .newsletter-section {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    }
+    .newsletter-title {
+    font-size: 2rem;
+    font-weight: 600;
+    }
+    .form-control.is.invalid {
+    border-color: #dc3545;
+    }
+    .form-control.is-valid {
+    border-color: #28a745;
+    }
+    .review-form textarea {
+    resize: none;
+    }
+    .signup-section {
+    background-color: #f8f9fa;
+    padding: 50px  0;
+    }
+    signup-heading {
+    margin-bottom: 20px;
+    }
+    .btn btn-primary {
+    background-color: #007BFF;
+    border-color: #007BFF;
+    }
+    h1 {
+    font-family: Times New Roman;
+    }
+    p {
+    font-family: sans-serif;
+    }
+    h2 {
+    font-family: Noto Sans;
+    }
+    h3 {
+    font-family: Courier New;
+    }
+</style>
 <body>
-<h1>This is a nithin kumar</h1>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+        <a class="navbar-brand text-white font-family:Roboto" href="#">Tasty Restaurant</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('about') }}">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('menu') }}">Menu</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('gallery') }}">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Carousel Slider -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkVzPUUmem1D-IanSnnh3zfkfZIrDhaaJKwsjYzZ2n_3TLj8xPidQj8ySM3miBISQ0GX19kd7u5Z0oQ5xZouax8qvGAWpxOvs33ckBo08TT-8-yh1dYHfYPBS6Owo44AubcrFKq3SgQ8L0GM-ye4N2Pdb5LkpfgP176C-tgjkw4Z6lWRRWXZ7enCoWcsug/s586/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg" alt="First slide">
+       <div class="carousel-caption d-none d-md-block">
+    <h1>WELCOME TO TASTY RESTAURANT</h1>
+           <p>Experience the best dishes in city</p>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+           </div>
+  </div>
+</div>
+<!-- About section -->
+ <div class="container mt-5">
+      <div class="image">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkVzPUUmem1D-IanSnnh3zfkfZIrDhaaJKwsjYzZ2n_3TLj8xPidQj8ySM3miBISQ0GX19kd7u5Z0oQ5xZouax8qvGAWpxOvs33ckBo08TT-8-yh1dYHfYPBS6Owo44AubcrFKq3SgQ8L0GM-ye4N2Pdb5LkpfgP176C-tgjkw4Z6lWRRWXZ7enCoWcsug/s586/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg" class="rounded-circle" alt="circle image" style="height: 200px; width: 200px">
+      </div>
+      <div class="text">
+        <h1>About us</h1>
+          <p>At Tasty, we believe that great food brings people together. Nestled in the heart of Vizag city, our restaurant offers a delightful dinning experience where modern flavours meet timeless tradition. Whether you're craving a comforting bowl of pasta, a wood-fired pizza, or a succulent gourmet burger, we take pride in serving dishes made from the freshest ingredients, cooked to perfection by our expert chefs.</p>
+      </div>
+    </div>
+  <div class="container mt-5">
+      <h2>Discover Our Menu</h2>
+        <div class="row g-4">
+            <!-- First Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhTuxJhXbbxMtrClb_1lfSiXuHpKeHnhFxIu4vKdTocRD3WlV9I7zNQZxqJGp6bYT4nP_QaDJXJTPcVROaismk1oKpW0_4F0wqhl4QlP1NnAm7HnkC5mThZCJ4ORPocFAr3ySVw6wVUtlpKRV-QoGLoLjGkjaMst_lRLOZd2WKZrofSQ84nZHrP3lHO5pD/s498/chitra-sendhil1453210035569e39b33b9db.jpeg" class="card-img" alt="Image 1">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">LUNCH</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh04PL5p2o75P3_N3v0Rt4c1nu7zv_lNHampNHwGjDntPMKC6oVDiZTX32jcuthyyu75dsjXlmiHzJkrr0sECEykBVxZIC5tgx_GPZjOe18Cwys85S1HOdmGv83DZ_ihh3yHdGHxPA6v5oUnSa9kKmPFz10KHqjTbYXtpWFR4i8gS-9Y4SwVDsSsWkWKDje/s616/1660928170362.jpeg" class="card-img" alt="Image 2">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">DINNER</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTcKCwm6dg4gDSKs6D2UcqqHuA3jQqlCxc0-SHQFLwA1ZbPdNBbqISCsGIgT1jh98KHsdQMTVY2Ol6xYJ57MLUQ3OpZms0rpqGftoukIMcrYPSZLnIvvvpKmD6LCVot86X4F9LjZ1BxoIi0vBUKJKpOpG8pC6A2986NzPzomOyJv67IJ-ZAfisnWT5fuR4/s390/tandoori-chicken-indian-non-vegetarian-260nw-2231161337.jpg" class="card-img" alt="Image 3">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">STARTER</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container mt-5">
+        <div class="row g-4">
+            <!-- First Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6m5ZLicI69zUWiDwujBFITrE4l7Ij999mdQfVvyo9GCzGeLmwynh-7QbMs8H33hXLMbz_6B4lYrFvKZUQP2qS9RHD6jLl97mTJjSBAqsSPCWtw9S_lFmr_brYjhgVbW0scT6CFUO2OzAcAN_yQSvylQp_4Xx57x6r2TOn92p8Hl8wDewRFt6Ae3b3Jnl0/s1024/shutterstock_475360618-1024x683.webp" class="card-img" alt="DESSERT">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">DESSERT</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkhyBmeb8WTxahyphenhyphentIf-VzO8zsIUS16ThHnNgRjNnzQqVujF12VP_vFuWUHIZ_644J4PbTtqunjFxEdVee1qbVwj4LJZW5IZP-Kb1a4rleCy56vHDJqRA2k6AJTBBHDNlIbX0U6lRHK2tB9FQ_7_QvzxwJ1PgXTOC254S_Vte3H_17GHIYnU9vik9EMub2p/s2520/SFD_Tales_Non_Alcoholic_Cocktails_CR_Courtesy_Eben_2520x1420.jpg" class="card-img" alt="Image 2">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">DRINKS</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLK3M6gxhIXnnjaiVV1Or3S6i7aYY4Hj91w4NZoFeYlvnSvoQ-_GTZi54bsIo0zdIkC42hwRBy6koI6K4c8oPCMr2tyFY6DBrPItvZiuwgkwjvhR6xjVaIwKfFff5zaE-cI39yYftqevd8pk5X44JUaajar2DfmXGxn3-8AZ4pb3TVUhXf_FHawXUldwhU/s700/OLI-0921-Everyday-CourgetteFetaWalnutSaladWithChimichurriDressing_04284-5ec89bf.jpg" class="card-img" alt="Image 3">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">SALAD</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container mt-5">
+        <div class="row g-4">
+            <!-- First Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhB0pH_-HN5ZKZLKwc0sPM8jJV5iO3e3CQppaF41vKL60eHNgGYZZmG3UjI9EU3hKKVfTQqzSX0ww4vKfXkTMhGeaUHXeFAj-RDirnyDPXy5QWZhgRN6wCkhtBA_eB2E-ygNH4BXRIOH7abAlIIZv-68qXCmv_5B-tX6mYnQrDm2Rd1kOzpB8GAdRoT9PBm/s275/images%20%281%29.jpeg" class="card-img" alt="Image 1">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">BURGER</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiw2djQsY6Rc9yW7HHn_4QW5mxw1TI_wdFcp4JB0HI0mOG5nSWQ8LEMEDDLWP_EShBj0vb-_MfP6H5-fdmGgx4WBMA-SLrMplgLmux7jHYpO2vJHdE5efgBdc2MJnTOaQatBbBs_65XCrwUdvMiH7_4nMUIHXc2kMkAi2Uz0OwZzb4sig76S7h50Z1S1tE/s1200/Savory-Party-Bread_EXPS_THMBRDS19_8115_C10_03_5b-2.jpg" class="card-img" alt="Image 2">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">APPETIZER</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Image -->
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGS3HVgzmgLnohbxH818YmfvMM6lvAAVWM1oHx3pbcYCcc_ZeesxBlqQEh_P1fXUXa3dHwZppOEejCZNod2hHVJfrsckTgFCXje4i6b8Y_-qj33AunD9LwkbVEIKd1aw6DoM_nVWmKA53LNlFnitEfjn-ZbSFKX_6YfRkxsAxQYmmCQ6pzUbqn-uUImuS-/s850/1635346861-pastahero.jpeg" class="card-img" alt="Image 3">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="card-title">PASTA DISHES</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- Review Submission Form -->
+    <div class="container py-5 bg-light">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+  <div class="review-form mt-5">
+    <h3 class="text-center mb-4">Leave a Review</h3>
+    <form id="reviewForm">
+      <div class="mb-3">
+        <label for="reviewerName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="reviewerName" placeholder="Your name" required>
+      </div>
+      <div class="mb-3">
+        <label for="reviewStars" class="form-label">Rating</label>
+        <select class="form-select" id="reviewStars" required>
+          <option value="">Choose rating</option>
+          <option value="5">★★★★★ - 5 stars</option>
+          <option value="4">★★★★☆ - 4 stars</option>
+          <option value="3">★★★☆☆ - 3 stars</option>
+          <option value="2">★★☆☆☆ - 2 stars</option>
+          <option value="1">★☆☆☆☆ - 1 star</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="reviewComment" class="form-label">Your Review</label>
+        <textarea class="form-control" id="reviewComment" rows="4" placeholder="Write your review here..." required></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </div>
+    </form>
+      </div>
+            </div>
+            </div>
+  </div>
+
+<div class="container signup-section">
+    <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+            <h2 class="signup-heading">Subscribe to our Newsletter</h2>
+            <p>Stay updated with the latest news, articles, and updates.</p>
+            <form>
+                <div class="form-row">
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary btn-black">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>About Us</h3>
+                <p>At Tasty, we believe that great food brings people together. Nestled in the heart of Vizag city, our restaurant offers a delightful dinning experience where modern flavours meet timeless tradition. Whether you're craving a comforting bowl of pasta, a wood-fired pizza, or a succulent gourmet burger, we take pride in serving dishes made from the freshest ingredients, cooked to perfection by our expert chefs.</p>
+            </div>
+             <div class="col-md-4">
+                <h4>Open Timings</h4>
+                <ul class="list-unstyled"></ul>
+                <li><i class="fas fa-phone"></i>Sunday: 10:00AM to 11:00PM </li>
+                <li><i class="fas fa-envelope"></i>Monday: 10:00AM to 11:00PM</li>
+                <li><i class="fas fa-map-marker-alt"></i>Tuesday: 10:00AM to 11:00 PM</li>
+                 <li><i class="fas fa-phone"></i>Wednesday: 10:00AM to 11:00PM </li>
+                <li><i class="fas fa-envelope"></i>Thursday: 10:00AM to 11:00PM</li>
+                <li><i class="fas fa-map-marker-alt"></i>Friday: 10:00AM to 11:00 PM</li>
+                 <li><i class="fas fa-map-marker-alt">Saturday: 10:00AM to 11:00 PM</i></li>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <ul class="list-unstyled"></ul>
+                <li><i class="fas fa-phone"></i> +91 7680034566</li>
+                <li><i class="fas fa-envelope"></i> nithinkumarnk999@gmail.com</li>
+                <li><i class="fas fa-map-marker-alt"></i>Visakhapatnam city country india</li>
+            </div>
+        </div>
+    </div>
+    <div class="text-center py-3">
+        <p>&copy; 2024 Tasty Restaurant. All rights Reversed</p>
+    </div>
+</footer>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrap.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
